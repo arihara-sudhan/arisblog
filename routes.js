@@ -2,6 +2,9 @@ const router = require('express').Router();
 
 const postModel = require('./schemas/post');
 
+router.get('/',(req,res)=>{res.setHeader('Access-Control-Allow-Credentials',"true")
+			  res.send("API IS RUNNING.......................")});
+
 router.post('/createPost',async (req,res)=>{
 	try {
 		const newItem = new postModel({
