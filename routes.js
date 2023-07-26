@@ -32,7 +32,7 @@ router.get('/getPosts', async (req, res) => {
   }
 });
 
-router.get('/getPost/:num', async (req, res) => {
+router.get('/:num', async (req, res) => {
   try {
     const num = parseInt(req.params.num, 10);
     if (isNaN(num)) {
