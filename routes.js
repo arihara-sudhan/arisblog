@@ -32,24 +32,4 @@ router.get('/getPosts', async (req, res) => {
   }
 });
 
-router.get('/:num', async (req, res) => {
-  try {
-    const num = parseInt(req.params.num, 10);
-    if (isNaN(num)) {
-      res.status(400).json({ message: "Invalid post number." });
-      return;
-    }
-
-    const post = await postModel.findOne({ num });
-    if (!post) {
-      res.status(404).json({ message: "Post not found." });
-      return;
-    }
-
-    res.status(200).json(post);
-  } catch (err) {
-    res.json(err);
-  }
-});
-
 module.exports = router;
